@@ -12,14 +12,23 @@ export default class Cart extends Component {
             <img src={item.hinhAnh} width={50} alt />
           </td>
           <td>
-            <button>-</button>
+            <button onClick={() => this.props.handleQuantity(false, item.maSP)}>
+              -
+            </button>
             {item.soLuong}
-            <button>+</button>
+            <button onClick={() => this.props.handleQuantity(true, item.maSP)}>
+              +
+            </button>
           </td>
           <td>{item.giaBan}</td>
           <td>{item.giaBan * item.soLuong}</td>
           <td>
-            <button className="btn btn-danger">Delete</button>
+            <button
+              className="btn btn-danger"
+              onClick={() => this.props.handleRemove(item.maSP)}
+            >
+              Delete
+            </button>
           </td>
         </tr>
       );
