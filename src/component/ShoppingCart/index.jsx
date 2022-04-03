@@ -32,24 +32,59 @@ export default class ShoopingCart extends Component {
     }
     this.setState({ cardList: newCartList });
   };
+  handleQuantity = (status, maSP) => {
+    let cartList = this.state.cardList;
+    const index = cartList.findIndex((cart) => cart.maSP === maSP);
+    if (index !== -1) {
+      if (status) {
+        cartList[index].soLuong += 1;
+      } else {
+        if (cartList[index].soLuong > 1) {
+          cartList[index].soLuong -= 1;
+        } else {
+          cartList.splice(index, 1);
+        }
+      }
+    }
+    this.setState({ cardList: cartList });
+  };
+  handleRemove = (maSP) => {
+    let cartList = this.state.cardList;
+    const index = cartList.findIndex((cart) => cart.maSP === maSP);
+    if (index !== -1) {
+      cartList.splice(index, 1);
+    }
+    this.setState({ cardList: cartList });
+  };
+
+  totalCartList = () => {
+    return this.state.cardList.reduce(
+      (total, item) => (total += item.soLuong),
+      0
+    );
+  };
   render() {
     return (
       <section className="container">
-        <h3 className="title text-center">Bài tập giỏ hàng</h3>
+        <h3 className="title text-center">Bài tập giỏ hàngs</h3>
         <div className="container text-center my-2">
           <button
             className="btn btn-danger "
             data-toggle="modal"
             data-target="#modelId"
           >
-            Giỏ hàng (8)
+            Giỏ hàng ({this.totalCartList()})
           </button>
         </div>
         <ProductList
           handleSetProDetail={this.handleSetProDetail}
           handleAddCart={this.handleAddCart}
         />
-        <Cart cardList={this.state.cardList} />
+        <Cart
+          cardList={this.state.cardList}
+          handleQuantity={this.handleQuantity}
+          handleRemove={this.handleRemove}
+        />
         <ProductDetail proDetail={this.state.proDetail} />
       </section>
     );

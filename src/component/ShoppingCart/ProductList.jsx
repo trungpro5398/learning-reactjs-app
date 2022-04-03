@@ -52,7 +52,7 @@ export default class ProductList extends Component {
             handleSetProDetail={this.props.handleSetProDetail}
             handleAddCart={this.props.handleAddCart}
           />
-          ;                                                                     
+          ;
         </div>
       );
     });
