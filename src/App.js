@@ -1,12 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Header from "./component/Header.js";
-import Navigation from "./component/Navigation";
-import Content from "./component/Content";
-import Footer from "./component/Footer";
+
 import ExampleLayout from "./component/ExampleLayout";
 import LearningDataBinding from "./component/LearningDataBinding";
 import ExampleShowRoom from "./component/ExampleShowRoom";
+import ExampleGameBauCua from "./component/ExampleGameBauCua";
+import ShoopingCart from "./component/ShoppingCart";
 
 function App() {
   return (
@@ -22,6 +21,8 @@ function App() {
       <LearningDataBinding></LearningDataBinding>
       <ExampleLayout></ExampleLayout>
       <ExampleShowRoom />
+      <ExampleGameBauCua />
+      <ShoopingCart />
     </div>
   );
 }
