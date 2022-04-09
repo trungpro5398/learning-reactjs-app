@@ -6,7 +6,7 @@ import LearningDataBinding from "./component/LearningDataBinding";
 import ExampleShowRoom from "./component/ExampleShowRoom";
 import ExampleGameBauCua from "./component/ExampleGameBauCua";
 import ShoopingCart from "./component/ShoppingCart";
-
+import DemoRedux from "./component/DemoRedux/DemoRedux";
 function App() {
   return (
     // <div className="App">
@@ -23,6 +23,7 @@ function App() {
       <ExampleShowRoom />
       <ExampleGameBauCua />
       <ShoopingCart />
+      <DemoRedux />
     </div>
   );
 }
